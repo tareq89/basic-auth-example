@@ -1,0 +1,31 @@
+{
+  "name": "basic-auth",
+  "version": "1.0.0",
+  "description": "a basic example of user registration, login authentication etc",
+  "main": "app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "build": "webpack & gulp build",
+    "start": "npm run-script build & nodemon app.js",
+    "test": "test"
+  },
+  "author": "muhammed tareq aziz",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "express": "^4.16.2",
+    "handlebars": "^4.0.11",
+    "jquery": "^3.2.1",
+    "mustache-express": "^1.2.5"
+  },
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^3.0.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^3.0.0",
+    "nodemon": "^1.14.7",
+    "webpack": "^3.10.0"
+  }
+}
