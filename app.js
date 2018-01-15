@@ -1,26 +1,19 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 const path = require('path');
-const mustacheExpress = require('mustache-express');
-const handlebars = require('handlebars');
-const fs = require('fs');
 
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.engine('mustache', mustacheExpress());
-app.set('view engine', 'mustache');
+if(process.env.ENV === 'production') {
+    
+    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(express.static(path.join(__dirname, 'public/build/')));    
+    app.get('/', (req, res) => {
+        res.sendfile(path.join(__dirname, 'public/build/'));
+    });    
+}
 
-app.get('/login', (req, res) => {
-    const context = { title: 'Basic Auth Example', sectionName: 'User', engineName: 'Handlebars'};
-    res.render('index', context, function(err, html) {
-        context.body = html;
-        res.render('layout', context , function(err, htmlString) {
-            console.log(htmlString);
-            res.send(htmlString);
-        })
-    })    
-});
-
-app.listen(8000, () => {
-    console.log('basic-auth app listening on port 8000');
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+    console.log('basic-auth app listening on port ', PORT);
 })
