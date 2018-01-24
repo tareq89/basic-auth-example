@@ -8,7 +8,7 @@ import {
     Button, 
     CheckBox, 
     TextInput, PasswordInput,
-    } from 'grommet-addons/node_modules/grommet/'
+    } from 'grommet'
 // import { CircleLoader } from 'react-spinners';
 // import {reactLocalStorage} from 'reactjs-localstorage';
 
@@ -23,9 +23,9 @@ class Signup extends Component {
         const signupForm = (
             <div className='absolute-center'>
                 <Form>
-                    <Header>
+                    
                         <Heading style={{textAlign: 'center'}}>Signup</Heading>
-                    </Header>
+                    
                     <FormField label='Firstname'>                        
                         <TextInput id='Firstname'
                             name='Firstname-1'
@@ -45,13 +45,13 @@ class Signup extends Component {
                             placeholder={'type in your email address ex: abc@xyz.com'}/>
                     </FormField>
                     <FormField label='Password'>                        
-                        <PasswordInput id='Password' name='Password-1'/>
+                        <TextInput type="password" id='Password' name='Password-1' onChange={(e)=>{}}/>
                     </FormField>
                     <FormField>
-                        <CheckBox id='agree' name='agree' label='I acknowledge that I may lose data.' />
+                        <CheckBox id='agree' name='agree' label='I know the terms' />
                     </FormField>
-                    <Footer>                        
-                        <Button label='submit' type='submit' primary={true} onClick={()=>{this.setState({ signupRequestSent: true, signupSuccessful: false })}}/>
+                    <Footer pad={{"vertical": "medium"}} style={{flexDirection: "column"}}>                           
+                        <Button label='submit' type='submit' style={{alignSelf:"flex-end"}} primary={true} onClick={(e)=>{e.preventDefault();}}/>                    
                     </Footer>
                 </Form>
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Redirect, Link } from 'react-router-dom';
-import LoginForm from 'grommet-addons/node_modules/grommet/components/LoginForm';
+import LoginForm from 'grommet/components/LoginForm';
 import {reactLocalStorage} from 'reactjs-localstorage';
 import CircleLoaderWrapper from '../circleLoader/CircleLoader';
 
